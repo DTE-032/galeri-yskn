@@ -27,13 +27,14 @@
                     },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
                     }
                 }
             }
         }
     </script>
     <!-- Google Fonts & FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
@@ -143,118 +144,120 @@
         </div>
     </nav>
 
-    <!-- Header Judul Halaman Galeri -->
+    <!-- Header Judul Halaman Galeri (Artistik & Klasik - Left Aligned) -->
     <section class="bg-gradient-to-b from-primary-50/70 via-slate-50 to-slate-50 py-16 border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-            <span class="text-xs font-bold uppercase tracking-widest text-primary-500 bg-primary-100 px-4 py-1.5 rounded-full inline-block">Dokumentasi Lapangan</span>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">Galeri Kegiatan YSKN</h1>
-            <p class="text-slate-600 max-w-2xl mx-auto text-base sm:text-lg font-light leading-relaxed">
-                Kumpulan dokumentasi momen kebersamaan, penyaluran bantuan, layanan kesehatan, dan senyuman para penerima manfaat di berbagai penjuru Nusantara.
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left space-y-4">
+            <div class="border-l-4 border-primary-500 pl-4 py-1">
+                <span class="text-xs font-bold uppercase tracking-widest text-primary-600 block mb-1">Dokumentasi Lapangan</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight font-serif italic">Galeri Kegiatan YSKN</h1>
+            </div>
+            <p class="text-slate-600 max-w-3xl text-base sm:text-lg font-serif italic leading-relaxed pl-4">
+                &ldquo;Kumpulan dokumentasi momen kebersamaan, penyaluran bantuan, layanan kesehatan, dan senyuman para penerima manfaat di berbagai penjuru Nusantara.&rdquo;
             </p>
         </div>
     </section>
 
-    <!-- Konten Utama: Galeri Kegiatan dengan Filter -->
-    <section class="py-20 bg-white">
+    <!-- Konten Utama: Galeri Kegiatan dengan Filter (2 Kolom di Mobile) -->
+    <section class="py-16 md:py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Filter Kategori -->
-            <div class="flex flex-wrap justify-center gap-2 mb-12">
-                <button onclick="filterGallery('all')" class="gallery-filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-primary-500 text-white shadow-sm transition-all">Semua Momen</button>
-                <button onclick="filterGallery('sembako')" class="gallery-filter-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">Penyaluran Sembako</button>
-                <button onclick="filterGallery('kesehatan')" class="gallery-filter-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">Klinik Keliling</button>
-                <button onclick="filterGallery('pendidikan')" class="gallery-filter-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">Pendidikan</button>
-                <button onclick="filterGallery('darurat')" class="gallery-filter-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">Tanggap Darurat</button>
+            <div class="flex flex-wrap justify-start md:justify-center gap-2 mb-10 overflow-x-auto pb-2">
+                <button onclick="filterGallery('all')" class="gallery-filter-btn px-5 py-2.5 rounded-full text-xs md:text-sm font-bold bg-primary-500 text-white shadow-sm transition-all whitespace-nowrap">Semua Momen</button>
+                <button onclick="filterGallery('sembako')" class="gallery-filter-btn px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all whitespace-nowrap">Penyaluran Sembako</button>
+                <button onclick="filterGallery('kesehatan')" class="gallery-filter-btn px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all whitespace-nowrap">Klinik Keliling</button>
+                <button onclick="filterGallery('pendidikan')" class="gallery-filter-btn px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all whitespace-nowrap">Pendidikan</button>
+                <button onclick="filterGallery('darurat')" class="gallery-filter-btn px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all whitespace-nowrap">Tanggap Darurat</button>
             </div>
 
-            <!-- Grid Foto Galeri -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="gallery-grid">
+            <!-- Grid Foto Galeri (grid-cols-2 untuk mobile, md:grid-cols-3 untuk layar menengah ke atas) -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6" id="gallery-grid">
                 <!-- Item 1 -->
-                <div class="gallery-item relative group overflow-hidden rounded-2xl aspect-[4/3] bg-slate-100 shadow-sm border border-slate-100" data-category="sembako">
+                <div class="gallery-item relative group overflow-hidden rounded-xl md:rounded-2xl aspect-[4/3] bg-slate-100 shadow-sm border border-slate-100" data-category="sembako">
                     <img src="https://i.pinimg.com/1200x/2c/26/27/2c262773e214e186120f5c0e52f8d92f.jpg" alt="Penyaluran Sembako" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6 text-white">
-                        <span class="text-xs font-semibold text-primary-300 uppercase tracking-wider">Penyaluran Sembako</span>
-                        <h3 class="font-bold text-base mt-1">Berbagi Paket Pangan di Wilayah Pelosok</h3>
-                        <button onclick="openGalleryImage('https://i.pinimg.com/1200x/2c/26/27/2c262773e214e186120f5c0e52f8d92f.jpg', 'Penyaluran Sembako: Berbagi Paket Pangan di Wilayah Pelosok')" class="mt-2 text-xs font-bold inline-flex items-center gap-1.5 text-primary-200 hover:text-white transition-colors">Lihat Ukuran Penuh <i class="fa-solid fa-expand"></i></button>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-3 md:p-6 text-white">
+                        <span class="text-[10px] md:text-xs font-semibold text-primary-300 uppercase tracking-wider">Penyaluran Sembako</span>
+                        <h3 class="font-bold text-xs md:text-base mt-0.5 md:mt-1 leading-tight">Berbagi Paket Pangan di Wilayah Pelosok</h3>
+                        <button onclick="openGalleryImage('https://i.pinimg.com/1200x/2c/26/27/2c262773e214e186120f5c0e52f8d92f.jpg', 'Penyaluran Sembako: Berbagi Paket Pangan di Wilayah Pelosok')" class="mt-1 md:mt-2 text-[10px] md:text-xs font-bold inline-flex items-center gap-1 text-primary-200 hover:text-white transition-colors">Lihat Penuh <i class="fa-solid fa-expand"></i></button>
                     </div>
                 </div>
 
                 <!-- Item 2 -->
-                <div class="gallery-item relative group overflow-hidden rounded-2xl aspect-[4/3] bg-slate-100 shadow-sm border border-slate-100" data-category="kesehatan">
+                <div class="gallery-item relative group overflow-hidden rounded-xl md:rounded-2xl aspect-[4/3] bg-slate-100 shadow-sm border border-slate-100" data-category="kesehatan">
                     <img src="https://i.pinimg.com/1200x/34/ca/55/34ca552473a21dfa69161394d0b7b1f2.jpg" alt="Klinik Keliling" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6 text-white">
-                        <span class="text-xs font-semibold text-primary-300 uppercase tracking-wider">Klinik Keliling</span>
-                        <h3 class="font-bold text-base mt-1">Pemeriksaan Medis Gratis untuk Warga Lansia</h3>
-                        <button onclick="openGalleryImage('https://i.pinimg.com/1200x/34/ca/55/34ca552473a21dfa69161394d0b7b1f2.jpg', 'Klinik Keliling: Pemeriksaan Medis Gratis untuk Warga Lansia')" class="mt-2 text-xs font-bold inline-flex items-center gap-1.5 text-primary-200 hover:text-white transition-colors">Lihat Ukuran Penuh <i class="fa-solid fa-expand"></i></button>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-3 md:p-6 text-white">
+                        <span class="text-[10px] md:text-xs font-semibold text-primary-300 uppercase tracking-wider">Klinik Keliling</span>
+                        <h3 class="font-bold text-xs md:text-base mt-0.5 md:mt-1 leading-tight">Pemeriksaan Medis Gratis untuk Warga Lansia</h3>
+                        <button onclick="openGalleryImage('https://i.pinimg.com/1200x/34/ca/55/34ca552473a21dfa69161394d0b7b1f2.jpg', 'Klinik Keliling: Pemeriksaan Medis Gratis untuk Warga Lansia')" class="mt-1 md:mt-2 text-[10px] md:text-xs font-bold inline-flex items-center gap-1 text-primary-200 hover:text-white transition-colors">Lihat Penuh <i class="fa-solid fa-expand"></i></button>
                     </div>
                 </div>
 
                 <!-- Item 3 -->
-                <div class="gallery-item relative group overflow-hidden rounded-2xl aspect-[4/3] bg-slate-100 shadow-sm border border-slate-100" data-category="pendidikan">
+                <div class="gallery-item relative group overflow-hidden rounded-xl md:rounded-2xl aspect-[4/3] bg-slate-100 shadow-sm border border-slate-100" data-category="pendidikan">
                     <img src="https://i.pinimg.com/1200x/91/5a/eb/915aebcf537f93541ebef8de22e2790f.jpg" alt="Pendidikan" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6 text-white">
-                        <span class="text-xs font-semibold text-primary-300 uppercase tracking-wider">Pendidikan</span>
-                        <h3 class="font-bold text-base mt-1">Pemberian Beasiswa dan Alat Tulis Sekolah</h3>
-                        <button onclick="openGalleryImage('https://i.pinimg.com/1200x/91/5a/eb/915aebcf537f93541ebef8de22e2790f.jpg', 'Pendidikan: Pemberian Beasiswa dan Alat Tulis Sekolah')" class="mt-2 text-xs font-bold inline-flex items-center gap-1.5 text-primary-200 hover:text-white transition-colors">Lihat Ukuran Penuh <i class="fa-solid fa-expand"></i></button>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-3 md:p-6 text-white">
+                        <span class="text-[10px] md:text-xs font-semibold text-primary-300 uppercase tracking-wider">Pendidikan</span>
+                        <h3 class="font-bold text-xs md:text-base mt-0.5 md:mt-1 leading-tight">Pemberian Beasiswa dan Alat Tulis Sekolah</h3>
+                        <button onclick="openGalleryImage('https://i.pinimg.com/1200x/91/5a/eb/915aebcf537f93541ebef8de22e2790f.jpg', 'Pendidikan: Pemberian Beasiswa dan Alat Tulis Sekolah')" class="mt-1 md:mt-2 text-[10px] md:text-xs font-bold inline-flex items-center gap-1 text-primary-200 hover:text-white transition-colors">Lihat Penuh <i class="fa-solid fa-expand"></i></button>
                     </div>
                 </div>
 
                 <!-- Item 4 -->
-                <div class="gallery-item relative group overflow-hidden rounded-2xl aspect-[4/3] bg-slate-100 shadow-sm border border-slate-100" data-category="darurat">
+                <div class="gallery-item relative group overflow-hidden rounded-xl md:rounded-2xl aspect-[4/3] bg-slate-100 shadow-sm border border-slate-100" data-category="darurat">
                     <img src="https://i.pinimg.com/1200x/5c/31/c5/5c31c5b4a58cfcf2bc06c5118a3ab2c9.jpg" alt="Tanggap Darurat" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6 text-white">
-                        <span class="text-xs font-semibold text-primary-300 uppercase tracking-wider">Tanggap Darurat</span>
-                        <h3 class="font-bold text-base mt-1">Evakuasi dan Penyaluran Logistik Bencana</h3>
-                        <button onclick="openGalleryImage('https://i.pinimg.com/1200x/5c/31/c5/5c31c5b4a58cfcf2bc06c5118a3ab2c9.jpg', 'Tanggap Darurat: Evakuasi dan Penyaluran Logistik Bencana')" class="mt-2 text-xs font-bold inline-flex items-center gap-1.5 text-primary-200 hover:text-white transition-colors">Lihat Ukuran Penuh <i class="fa-solid fa-expand"></i></button>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-3 md:p-6 text-white">
+                        <span class="text-[10px] md:text-xs font-semibold text-primary-300 uppercase tracking-wider">Tanggap Darurat</span>
+                        <h3 class="font-bold text-xs md:text-base mt-0.5 md:mt-1 leading-tight">Evakuasi dan Penyaluran Logistik Bencana</h3>
+                        <button onclick="openGalleryImage('https://i.pinimg.com/1200x/5c/31/c5/5c31c5b4a58cfcf2bc06c5118a3ab2c9.jpg', 'Tanggap Darurat: Evakuasi dan Penyaluran Logistik Bencana')" class="mt-1 md:mt-2 text-[10px] md:text-xs font-bold inline-flex items-center gap-1 text-primary-200 hover:text-white transition-colors">Lihat Penuh <i class="fa-solid fa-expand"></i></button>
                     </div>
                 </div>
 
                 <!-- Item 5 -->
-                <div class="gallery-item relative group overflow-hidden rounded-2xl aspect-[4/3] bg-slate-100 shadow-sm border border-slate-100" data-category="sembako">
+                <div class="gallery-item relative group overflow-hidden rounded-xl md:rounded-2xl aspect-[4/3] bg-slate-100 shadow-sm border border-slate-100" data-category="sembako">
                     <img src="https://i.pinimg.com/736x/b6/60/c8/b660c89d43597f457b040f21f83ddda8.jpg" alt="Relawan Inspiratif" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6 text-white">
-                        <span class="text-xs font-semibold text-primary-300 uppercase tracking-wider">Relawan Inspiratif</span>
-                        <h3 class="font-bold text-base mt-1">Semangat Gotong Royong Relawan YSKN</h3>
-                        <button onclick="openGalleryImage('https://i.pinimg.com/736x/b6/60/c8/b660c89d43597f457b040f21f83ddda8.jpg', 'Relawan Inspiratif: Semangat Gotong Royong Relawan YSKN')" class="mt-2 text-xs font-bold inline-flex items-center gap-1.5 text-primary-200 hover:text-white transition-colors">Lihat Ukuran Penuh <i class="fa-solid fa-expand"></i></button>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-3 md:p-6 text-white">
+                        <span class="text-[10px] md:text-xs font-semibold text-primary-300 uppercase tracking-wider">Relawan Inspiratif</span>
+                        <h3 class="font-bold text-xs md:text-base mt-0.5 md:mt-1 leading-tight">Semangat Gotong Royong Relawan YSKN</h3>
+                        <button onclick="openGalleryImage('https://i.pinimg.com/736x/b6/60/c8/b660c89d43597f457b040f21f83ddda8.jpg', 'Relawan Inspiratif: Semangat Gotong Royong Relawan YSKN')" class="mt-1 md:mt-2 text-[10px] md:text-xs font-bold inline-flex items-center gap-1 text-primary-200 hover:text-white transition-colors">Lihat Penuh <i class="fa-solid fa-expand"></i></button>
                     </div>
                 </div>
 
                 <!-- Item 6 -->
-                <div class="gallery-item relative group overflow-hidden rounded-2xl aspect-[4/3] bg-slate-100 shadow-sm border border-slate-100" data-category="sembako">
+                <div class="gallery-item relative group overflow-hidden rounded-xl md:rounded-2xl aspect-[4/3] bg-slate-100 shadow-sm border border-slate-100" data-category="sembako">
                     <img src="https://i.pinimg.com/1200x/8d/f1/a7/8df1a73790a5e1003590a1155337eb89.jpg" alt="Pemberdayaan Ekonomi" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6 text-white">
-                        <span class="text-xs font-semibold text-primary-300 uppercase tracking-wider">Pemberdayaan Ekonomi</span>
-                        <h3 class="font-bold text-base mt-1">Pelatihan Kewirausahaan Mandiri Warga</h3>
-                        <button onclick="openGalleryImage('https://i.pinimg.com/1200x/8d/f1/a7/8df1a73790a5e1003590a1155337eb89.jpg', 'Pemberdayaan Ekonomi: Pelatihan Kewirausahaan Mandiri Warga')" class="mt-2 text-xs font-bold inline-flex items-center gap-1.5 text-primary-200 hover:text-white transition-colors">Lihat Ukuran Penuh <i class="fa-solid fa-expand"></i></button>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-3 md:p-6 text-white">
+                        <span class="text-[10px] md:text-xs font-semibold text-primary-300 uppercase tracking-wider">Pemberdayaan Ekonomi</span>
+                        <h3 class="font-bold text-xs md:text-base mt-0.5 md:mt-1 leading-tight">Pelatihan Kewirausahaan Mandiri Warga</h3>
+                        <button onclick="openGalleryImage('https://i.pinimg.com/1200x/8d/f1/a7/8df1a73790a5e1003590a1155337eb89.jpg', 'Pemberdayaan Ekonomi: Pelatihan Kewirausahaan Mandiri Warga')" class="mt-1 md:mt-2 text-[10px] md:text-xs font-bold inline-flex items-center gap-1 text-primary-200 hover:text-white transition-colors">Lihat Penuh <i class="fa-solid fa-expand"></i></button>
                     </div>
                 </div>
 
                 <!-- Item 7 -->
-                <div class="gallery-item relative group overflow-hidden rounded-2xl aspect-[4/3] bg-slate-100 shadow-sm border border-slate-100" data-category="kesehatan">
+                <div class="gallery-item relative group overflow-hidden rounded-xl md:rounded-2xl aspect-[4/3] bg-slate-100 shadow-sm border border-slate-100" data-category="kesehatan">
                     <img src="https://i.pinimg.com/736x/08/69/40/08694028e7c1412f0e3f5680dc9b2156.jpg" alt="Layanan Kesehatan" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6 text-white">
-                        <span class="text-xs font-semibold text-primary-300 uppercase tracking-wider">Kesehatan</span>
-                        <h3 class="font-bold text-base mt-1">Pengobatan Gratis di Daerah Terpencil</h3>
-                        <button onclick="openGalleryImage('https://i.pinimg.com/736x/08/69/40/08694028e7c1412f0e3f5680dc9b2156.jpg', 'Kesehatan: Pengobatan Gratis di Daerah Terpencil')" class="mt-2 text-xs font-bold inline-flex items-center gap-1.5 text-primary-200 hover:text-white transition-colors">Lihat Ukuran Penuh <i class="fa-solid fa-expand"></i></button>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-3 md:p-6 text-white">
+                        <span class="text-[10px] md:text-xs font-semibold text-primary-300 uppercase tracking-wider">Kesehatan</span>
+                        <h3 class="font-bold text-xs md:text-base mt-0.5 md:mt-1 leading-tight">Pengobatan Gratis di Daerah Terpencil</h3>
+                        <button onclick="openGalleryImage('https://i.pinimg.com/736x/08/69/40/08694028e7c1412f0e3f5680dc9b2156.jpg', 'Kesehatan: Pengobatan Gratis di Daerah Terpencil')" class="mt-1 md:mt-2 text-[10px] md:text-xs font-bold inline-flex items-center gap-1 text-primary-200 hover:text-white transition-colors">Lihat Penuh <i class="fa-solid fa-expand"></i></button>
                     </div>
                 </div>
 
                 <!-- Item 8 -->
-                <div class="gallery-item relative group overflow-hidden rounded-2xl aspect-[4/3] bg-slate-100 shadow-sm border border-slate-100" data-category="darurat">
+                <div class="gallery-item relative group overflow-hidden rounded-xl md:rounded-2xl aspect-[4/3] bg-slate-100 shadow-sm border border-slate-100" data-category="darurat">
                     <img src="https://i.pinimg.com/736x/70/71/93/7071937848b43f34335735f04c7bcaf1.jpg" alt="Tanggap Darurat" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6 text-white">
-                        <span class="text-xs font-semibold text-primary-300 uppercase tracking-wider">Tanggap Darurat</span>
-                        <h3 class="font-bold text-base mt-1">Dapur Umum Korban Bencana Alam</h3>
-                        <button onclick="openGalleryImage('https://i.pinimg.com/736x/70/71/93/7071937848b43f34335735f04c7bcaf1.jpg', 'Tanggap Darurat: Dapur Umum Korban Bencana Alam')" class="mt-2 text-xs font-bold inline-flex items-center gap-1.5 text-primary-200 hover:text-white transition-colors">Lihat Ukuran Penuh <i class="fa-solid fa-expand"></i></button>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-3 md:p-6 text-white">
+                        <span class="text-[10px] md:text-xs font-semibold text-primary-300 uppercase tracking-wider">Tanggap Darurat</span>
+                        <h3 class="font-bold text-xs md:text-base mt-0.5 md:mt-1 leading-tight">Dapur Umum Korban Bencana Alam</h3>
+                        <button onclick="openGalleryImage('https://i.pinimg.com/736x/70/71/93/7071937848b43f34335735f04c7bcaf1.jpg', 'Tanggap Darurat: Dapur Umum Korban Bencana Alam')" class="mt-1 md:mt-2 text-[10px] md:text-xs font-bold inline-flex items-center gap-1 text-primary-200 hover:text-white transition-colors">Lihat Penuh <i class="fa-solid fa-expand"></i></button>
                     </div>
                 </div>
 
                 <!-- Item 9 -->
-                <div class="gallery-item relative group overflow-hidden rounded-2xl aspect-[4/3] bg-slate-100 shadow-sm border border-slate-100" data-category="pendidikan">
+                <div class="gallery-item relative group overflow-hidden rounded-xl md:rounded-2xl aspect-[4/3] bg-slate-100 shadow-sm border border-slate-100" data-category="pendidikan">
                     <img src="https://i.pinimg.com/736x/7c/32/e9/7c32e9c3781aa159af833b60136b79f7.jpg" alt="Pendidikan" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6 text-white">
-                        <span class="text-xs font-semibold text-primary-300 uppercase tracking-wider">Pendidikan</span>
-                        <h3 class="font-bold text-base mt-1">Senyum Bahagia Penerima Beasiswa Yatim</h3>
-                        <button onclick="openGalleryImage('https://i.pinimg.com/736x/7c/32/e9/7c32e9c3781aa159af833b60136b79f7.jpg', 'Pendidikan: Senyum Bahagia Penerima Beasiswa Yatim')" class="mt-2 text-xs font-bold inline-flex items-center gap-1.5 text-primary-200 hover:text-white transition-colors">Lihat Ukuran Penuh <i class="fa-solid fa-expand"></i></button>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-3 md:p-6 text-white">
+                        <span class="text-[10px] md:text-xs font-semibold text-primary-300 uppercase tracking-wider">Pendidikan</span>
+                        <h3 class="font-bold text-xs md:text-base mt-0.5 md:mt-1 leading-tight">Senyum Bahagia Penerima Beasiswa Yatim</h3>
+                        <button onclick="openGalleryImage('https://i.pinimg.com/736x/7c/32/e9/7c32e9c3781aa159af833b60136b79f7.jpg', 'Pendidikan: Senyum Bahagia Penerima Beasiswa Yatim')" class="mt-1 md:mt-2 text-[10px] md:text-xs font-bold inline-flex items-center gap-1 text-primary-200 hover:text-white transition-colors">Lihat Penuh <i class="fa-solid fa-expand"></i></button>
                     </div>
                 </div>
             </div>
@@ -348,7 +351,7 @@
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <img id="gallery-modal-img" src="" alt="Momen Galeri" class="max-h-[75vh] w-auto object-contain rounded-2xl shadow-2xl border border-slate-800">
-            <p id="gallery-modal-caption" class="text-white font-semibold text-center mt-4 text-sm md:text-base"></p>
+            <p id="gallery-modal-caption" class="text-white font-semibold text-center mt-4 text-sm md:text-base font-serif italic"></p>
         </div>
     </div>
 
